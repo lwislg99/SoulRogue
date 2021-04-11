@@ -66,7 +66,7 @@ public class Enemigo : MonoBehaviour
         distance = Vector2.Distance(playeri.transform.position, transform.position);
         Vector2 playerDirection = (playeri.transform.position - transform.position);
         RaycastHit2D playerInfo = Physics2D.Raycast(transform.position, playerDirection, 1000f);
-        if (playerInfo.collider.gameObject.tag == "Player" && distance<=10)
+        if (playerInfo.collider.gameObject.tag == "Player" && distance<=5)
         {
             Debug.Log("pene");
             Follow();
