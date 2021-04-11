@@ -8694,7 +8694,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileSpriteIndex: 16
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -9801,7 +9801,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -15253,14 +15253,13 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 8350207869071871453, guid: f36dfa02b3bcd47499c92ef8017a94ed,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: 4030928864236608029, guid: f36dfa02b3bcd47499c92ef8017a94ed,
       type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 920479150478490178, guid: f36dfa02b3bcd47499c92ef8017a94ed, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 115
@@ -15282,8 +15281,9 @@ Tilemap:
       type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 8350207869071871453, guid: f36dfa02b3bcd47499c92ef8017a94ed,
+      type: 3}
   - m_RefCount: 17
     m_Data: {fileID: 4521517127521154968, guid: 01f6ce11202c5b74099a397d8c3812c2,
       type: 3}
@@ -15293,8 +15293,8 @@ Tilemap:
   - m_RefCount: 12
     m_Data: {fileID: -6400868802778926658, guid: 01f6ce11202c5b74099a397d8c3812c2,
       type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 920479150478490178, guid: f36dfa02b3bcd47499c92ef8017a94ed, type: 3}
   - m_RefCount: 15
     m_Data: {fileID: 1938066564711815462, guid: 01f6ce11202c5b74099a397d8c3812c2,
       type: 3}
@@ -15953,7 +15953,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -2.9829712, y: 0.8044815}
