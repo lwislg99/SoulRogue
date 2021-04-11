@@ -44,13 +44,14 @@ public class EnemigoBien : MonoBehaviour
     }
     void Wander()
     {
+        RandomDir = Random.Range(0, 360);
+
         RaycastHit2D wallInfo = Physics2D.Raycast(transform.position,transform.TransformDirection( Vector2.right), 0.5f);
         transform.Translate(Vector2.right * speed * Time.deltaTime);
         if (wallInfo.collider.gameObject.tag == "pared")
         {
             Debug.Log("yes");
-            RandomDir = Random.Range(0, 4);
-            if (RandomDir <= 1)
+            /*if (RandomDir <= 1)
             {
                 transform.Rotate(new Vector3(0, 0, 90));
             }
@@ -65,7 +66,8 @@ public class EnemigoBien : MonoBehaviour
             if (RandomDir > 3 && RandomDir <= 4)
             {
                 transform.Rotate(new Vector3(0, 0, 360));
-            }
+            }*/
+            transform.Rotate(new Vector3(0, 0, RandomDir));
 
 
         }

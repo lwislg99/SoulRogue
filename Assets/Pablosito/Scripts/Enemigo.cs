@@ -97,8 +97,8 @@ public class Enemigo : MonoBehaviour
         if (wallInfo.collider.gameObject.tag == "pared")
         {
             Debug.Log("yes");
-            RandomDir = Random.Range(0, 4);
-            if (RandomDir <= 1)
+            RandomDir = Random.Range(0, 360);
+            /*if (RandomDir <= 1)
             {
                 transform.Rotate(new Vector3(0, 0, 90));
             }
@@ -113,8 +113,8 @@ public class Enemigo : MonoBehaviour
             if (RandomDir > 3 && RandomDir <= 4)
             {
                 transform.Rotate(new Vector3(0, 0, 360));
-            }
-
+            }*/
+            transform.Rotate(new Vector3(0, 0, RandomDir));
 
         }
     }
