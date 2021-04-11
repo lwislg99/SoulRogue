@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8509280292360358144}
   - component: {fileID: 5794336030786697783}
   - component: {fileID: 111958649656193008}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Enemigo
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -159,6 +159,7 @@ MonoBehaviour:
   playeri: {fileID: 0}
   anim: {fileID: 0}
   "coldownDa\xF1o": 1
+  distance: 0
 --- !u!61 &5794336030786697783
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1353978087556764157}
   - component: {fileID: 1353978087556764147}
-  - component: {fileID: 1353978087556764146}
+  - component: {fileID: 8361129491842052971}
   m_Layer: 0
   m_Name: areadano
   m_TagString: "areaDa\xF1o"
@@ -165,19 +165,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &1353978087556764146
-BoxCollider:
+--- !u!61 &8361129491842052971
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353978087556764156}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1353978087781002143
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,12 +457,14 @@ MonoBehaviour:
   "da\xF1oJugadorActivado": 1
   ArcangelMiguel: 1
   ArcangelGabriel: 0
+  ArcangelBombas: 0
   Mandato1: 0
   Mandato2: 0
   interacionDisponible: 0
   balaDanoFuego: 0
   Dash: 0
   cambio: 0
+  angelGame: 
   Movimiento: {x: 0, y: 0, z: 0}
   Ataque: {x: 0, y: 0, z: 0}
   Jugador: {fileID: 1353978088594578355}
@@ -458,6 +473,7 @@ MonoBehaviour:
     type: 3}
   areaDanoExplosion: {fileID: 1353978089118109266}
   visualBala: {fileID: 1353978088015827555}
+  prefabBomba: {fileID: 0}
   Velocidad: 0.1
   velocidadNormal: 0.1
   velocidadDash: 0.6
@@ -592,7 +608,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

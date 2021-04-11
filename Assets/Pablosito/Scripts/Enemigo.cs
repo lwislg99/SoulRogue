@@ -59,18 +59,22 @@ public class Enemigo : MonoBehaviour
 
         }
 
-
-        dmgCoolDown = dmgCoolDown + Time.deltaTime;
+        if(dmgCoolDown>=0)
+        {
+            dmgCoolDown -= Time.deltaTime;
+        }
         float dist = Vector3.Distance(this.transform.position, playeri.transform.position);
 
         distance = Vector2.Distance(playeri.transform.position, transform.position);
         Vector2 playerDirection = (playeri.transform.position - transform.position);
         RaycastHit2D playerInfo = Physics2D.Raycast(transform.position, playerDirection, 1000f);
+        
         if (playerInfo.collider.gameObject.tag == "Player" && distance<=5)
         {
-            Debug.Log("pene");
+            Debug.Log("SIGUIENDO");
             Follow();
         }
+        
         else
         {
             Wander();
@@ -85,10 +89,7 @@ public class Enemigo : MonoBehaviour
             this.gameObject.SetActive(false);
         }
     }
-    private bool IsPlayerInRange(float range)
-    {
-        return Vector3.Distance(transform.position, playeri.transform.position) <= range;
-    }
+    
 
     void Wander()
     {
@@ -123,20 +124,15 @@ public class Enemigo : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, playeri.transform.position, speed * Time.deltaTime);
 
     }
-    void Dmg()
-    {
-        if (dist <= 1 && dmgCoolDown >= 2)
-        {
-           playeri.vida = playeri.vida - daño;
-        }
-    }
+    
     void OnTriggerEnter2D(Collider2D other)
     {
+
         
 //other.gameObject.CompareTag("areaDaño")
         if (other.tag == "areaDaño" && coldownDaño <= 0)
         {
-           
+            
             vidae -= playeri.dano;
             coldownDaño = 1;
 
@@ -146,10 +142,19 @@ public class Enemigo : MonoBehaviour
             }
            
         }
-        if(other.tag == "Player" && dmgCoolDown >= 0)
+
+
+        
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+        if (collision.gameObject.tag == "Player" && dmgCoolDown <= 0)
         {
-            anim.SetBool("atack", true);
+            Debug.Log("entro");
+            /*anim.SetBool("atack", true);*/
             playeri.vida -= daño;
+            dmgCoolDown = 1;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
