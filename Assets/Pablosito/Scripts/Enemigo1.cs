@@ -45,6 +45,7 @@ public class Enemigo1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         playeri = FindObjectOfType<Player>();
         dmgCoolDown = 0;
        
@@ -62,6 +63,7 @@ public class Enemigo1 : MonoBehaviour
     void Update()
     {
 
+        transform.Rotate(new Vector3(0, 0, 0));
         target1Dist = Vector2.Distance(target1.transform.position, transform.position);
         target2Dist = Vector2.Distance(target2.transform.position, transform.position);
         playerDist = Vector2.Distance(playeri.transform.position, transform.position);
