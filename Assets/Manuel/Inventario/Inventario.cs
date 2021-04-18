@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventario : MonoBehaviour
-{/*
-    public List<GameObject> Bag = new List<GameObject>();
+{
+    /*public List<GameObject> Bag = new List<GameObject>();
     GameObject Inv;
     public bool Activar_inv;
 

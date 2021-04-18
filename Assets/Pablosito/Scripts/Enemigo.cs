@@ -36,6 +36,10 @@ public class Enemigo : MonoBehaviour
     public Animator anim;
 
     public float coldownDaño = 1;
+
+    float RandomDir;
+
+    public float distance;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,32 +59,29 @@ public class Enemigo : MonoBehaviour
 
         }
 
-
-        dmgCoolDown = dmgCoolDown + Time.deltaTime;
+        if(dmgCoolDown>=0)
+        {
+            dmgCoolDown -= Time.deltaTime;
+        }
         float dist = Vector3.Distance(this.transform.position, playeri.transform.position);
 
-        switch (currState)
+        distance = Vector2.Distance(playeri.transform.position, transform.position);
+        Vector2 playerDirection = (playeri.transform.position - transform.position);
+        RaycastHit2D playerInfo = Physics2D.Raycast(transform.position, playerDirection, 1000f);
+        
+        if (playerInfo.collider.gameObject.tag == "Player" && distance<=5)
         {
-            case (EnemyState.Wander):
-                Wander();
-                break;
-            case (EnemyState.Follow):
-                Follow();
-                break;
-            case (EnemyState.Die):
-
-                break;
-
+            Debug.Log("SIGUIENDO");
+            Follow();
         }
-        if (IsPlayerInRange(range) && currState != EnemyState.Die)
+        
+        else
         {
-            currState = EnemyState.Follow;
+            Wander();
+        }
 
-        }
-        else if (!IsPlayerInRange(range) && currState != EnemyState.Die)
-        {
-            currState = EnemyState.Wander;
-        }
+        RaycastHit2D wallInfo = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.right), 0.5f);
+
 
         if (vidae <= 0)
         {
@@ -88,80 +89,50 @@ public class Enemigo : MonoBehaviour
             this.gameObject.SetActive(false);
         }
     }
-    private bool IsPlayerInRange(float range)
-    {
-        return Vector3.Distance(transform.position, playeri.transform.position) <= range;
-    }
+    
 
     void Wander()
     {
-        if (direccion == 1)
+        RaycastHit2D wallInfo = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.right), 0.5f);
+        transform.Translate(Vector2.right * speed * Time.deltaTime);
+        if (wallInfo.collider.gameObject.tag == "pared")
         {
-            timer1 = Random.Range(1, 3);
-            tiempo = tiempo + Time.deltaTime;
-            transform.position += new Vector3(1f * speed * Time.deltaTime, 0, 0);
-            if (tiempo >= timer1)
+            Debug.Log("yes");
+            RandomDir = Random.Range(0, 360);
+            /*if (RandomDir <= 1)
             {
-                direccion = 2;
-                tiempo = 0;
+                transform.Rotate(new Vector3(0, 0, 90));
             }
+            if (RandomDir > 1 && RandomDir <= 2)
+            {
+                transform.Rotate(new Vector3(0, 0, 180));
+            }
+            if (RandomDir > 2 && RandomDir <= 3)
+            {
+                transform.Rotate(new Vector3(0, 0, 270));
+            }
+            if (RandomDir > 3 && RandomDir <= 4)
+            {
+                transform.Rotate(new Vector3(0, 0, 360));
+            }*/
+            transform.Rotate(new Vector3(0, 0, RandomDir));
 
         }
-        if (direccion == 2)
-        {
-            timer2 = Random.Range(1, 3);
-            tiempo = tiempo + Time.deltaTime;
-            transform.position += new Vector3(0, 1f * speed * Time.deltaTime, 0);
-            if (tiempo >= timer2)
-            {
-                direccion = 3;
-                tiempo = 0;
-            }
-
-        }
-        if (direccion == 3)
-        {
-            timer3 = Random.Range(1, 3);
-            tiempo = tiempo + Time.deltaTime;
-            transform.position += new Vector3(-1f * speed * Time.deltaTime, 0, 0);
-            if (tiempo >= timer3)
-            {
-                direccion = 4;
-                tiempo = 0;
-            }
-        }
-        if (direccion == 4)
-        {
-            timer4 = Random.Range(1, 3);
-            tiempo = tiempo + Time.deltaTime;
-            transform.position += new Vector3(0, -1f * speed * Time.deltaTime, 0);
-            if (tiempo >= timer4)
-            {
-                direccion = 1;
-                tiempo = 0;
-            }
-        }
-
     }
     void Follow()
     {
         transform.position = Vector2.MoveTowards(transform.position, playeri.transform.position, speed * Time.deltaTime);
 
     }
-    void Dmg()
-    {
-        if (dist <= 1 && dmgCoolDown >= 2)
-        {
-           playeri.vida = playeri.vida - daño;
-        }
-    }
+    
     void OnTriggerEnter2D(Collider2D other)
     {
+
         
 //other.gameObject.CompareTag("areaDaño")
         if (other.tag == "areaDaño" && coldownDaño <= 0)
         {
-           
+            
             vidae -= playeri.dano;
             coldownDaño = 1;
 
@@ -171,10 +142,19 @@ public class Enemigo : MonoBehaviour
             }
            
         }
-        if(other.tag == "Player" && dmgCoolDown >= 0)
+
+
+        
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+        if (collision.gameObject.tag == "Player" && dmgCoolDown <= 0)
         {
-            anim.SetBool("atack", true);
+            Debug.Log("entro");
+            /*anim.SetBool("atack", true);*/
             playeri.vida -= daño;
+            dmgCoolDown = 1;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
