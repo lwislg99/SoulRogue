@@ -330,11 +330,13 @@ public class Player : MonoBehaviour
             GameObject bullet = Instantiate(prefabDisparo, transform.position, transform.rotation) as GameObject;
             bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
             bullet.GetComponent<Rigidbody2D>().velocity = new Vector3((x < 0) ? Mathf.Floor(x) * velocidadDisparo : Mathf.Ceil(x) * velocidadDisparo, (y < 0) ? Mathf.Floor(y) * velocidadDisparo : Mathf.Ceil(y) * velocidadDisparo, 0);
-            cambio = true;
+            //cambio = true;
         }
         else if(ArcangelBombas==true)
         {
-            GameObject bomba = Instantiate(prefabBomba, this.transform) as GameObject;
+             GameObject bomba = Instantiate(prefabBomba, this.transform) as GameObject;
+            bomba.AddComponent<Rigidbody2D>().gravityScale = 0;
+            bomba.GetComponent<Rigidbody2D>().velocity = new Vector3 (0 , 0 , 0);
 
         }
     }
