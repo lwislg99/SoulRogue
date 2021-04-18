@@ -17,7 +17,7 @@ public class Enemigo2 : MonoBehaviour
     public float dmgCoolDown;
 
     public float vidae = 10;
-
+    public float vidaeMax = 10;
 
     public Player playeri;
     public Animator anim;
@@ -45,10 +45,12 @@ public class Enemigo2 : MonoBehaviour
 
     public float explosionRango;
     public float explosionDaño;
+    public barraVida barraVidaI;
     // Start is called before the first frame update
     void Start()
     {
         playeri = FindObjectOfType<Player>();
+        barraVidaI = GetComponentInChildren<barraVida>();
         dmgCoolDown = 0;
 
         anim = GetComponent<Animator>();
@@ -150,6 +152,7 @@ public class Enemigo2 : MonoBehaviour
                     playeri.vida -= explosionDaño;
 
                 }
+
                 this.gameObject.SetActive(false);
             }
         }
@@ -172,6 +175,8 @@ public class Enemigo2 : MonoBehaviour
             {
                 vidae -= (Time.deltaTime / 2);
             }
+            
+            barraVidaI.UpdateHealth();
 
         }
 

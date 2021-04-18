@@ -17,7 +17,7 @@ public class Enemigo3 : MonoBehaviour
     public float dmgCoolDown;
 
     public float vidae = 10;
-
+    public float vidaeMax = 10;
 
     public Player playeri;
     public Animator anim;
@@ -45,11 +45,12 @@ public class Enemigo3 : MonoBehaviour
     float cooldownDisparoBase;
 
     public GameObject proyectilDisparo;
-    
+    public barraVida barraVidaI;
     // Start is called before the first frame update
     void Start()
     {
         playeri = FindObjectOfType<Player>();
+        barraVidaI = GetComponentInChildren<barraVida>();
         dmgCoolDown = 0;
 
         anim = GetComponent<Animator>();
@@ -178,6 +179,8 @@ public class Enemigo3 : MonoBehaviour
             {
                 vidae -= (Time.deltaTime / 2);
             }
+            
+            barraVidaI.UpdateHealth();
 
         }
 
