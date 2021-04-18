@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4166821822366954899}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.195, y: 3.195, z: 3.195}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSpawner: {fileID: 8357652221194446124, guid: 7a3b68b718ab9de4893deb87524b2bdf,
     type: 3}
-  cofreAbierto: {fileID: 6959128812887109645, guid: b5dcb47a8be83d840beb9b21b8d3c76c,
+  cofreAbierto: {fileID: 1171655581730566930, guid: fe9eb16a5348e8747bb8c20e11337342,
     type: 3}
   PlayerI: {fileID: 0}
 --- !u!61 &4166821822366954898
@@ -114,7 +114,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.009723738, y: 0.002243936}
+  m_Offset: {x: -0.0010966063, y: -0.028864563}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -125,5 +125,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.33651808, y: 0.3642897}
+  m_Size: {x: 1.2616577, y: 1.3678769}
   m_EdgeRadius: 0
