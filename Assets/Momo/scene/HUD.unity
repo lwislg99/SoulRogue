@@ -1018,12 +1018,12 @@ PrefabInstance:
     - target: {fileID: 1353978087781002140, guid: 33b41d68e49b3d64d86a980693c3c996,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -92.5
+      value: -77.53
       objectReference: {fileID: 0}
     - target: {fileID: 1353978087781002140, guid: 33b41d68e49b3d64d86a980693c3c996,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.6
+      value: 1.88
       objectReference: {fileID: 0}
     - target: {fileID: 1353978087781002140, guid: 33b41d68e49b3d64d86a980693c3c996,
         type: 3}
@@ -1120,6 +1120,26 @@ PrefabInstance:
       propertyPath: botonesAngeles.Array.data[2]
       value: 
       objectReference: {fileID: 1781802309}
+    - target: {fileID: 4325010812823293689, guid: 93524139ca63eb64186d5c39a4e253d3,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.7706748
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325010812823293689, guid: 93524139ca63eb64186d5c39a4e253d3,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.5413492
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325010812823293689, guid: 93524139ca63eb64186d5c39a4e253d3,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.020218492
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325010812823293689, guid: 93524139ca63eb64186d5c39a4e253d3,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.1404216
+      objectReference: {fileID: 0}
     - target: {fileID: 4325010812823293690, guid: 93524139ca63eb64186d5c39a4e253d3,
         type: 3}
       propertyPath: m_Enabled
@@ -1428,8 +1448,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bottomRooms:
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 791358581772668988, guid: 54b3ca07245f4a24e8e884fd0fbbce9c, type: 3}
   - {fileID: 4300113285839890958, guid: 4765c67fced6a7c45a7869aeefb3d8d5, type: 3}
   - {fileID: 1557623113248233308, guid: 5ace6aa9a71ada14fb7d9a08606ac1a3, type: 3}

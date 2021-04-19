@@ -175,8 +175,8 @@ MonoBehaviour:
   speed: 0
   "da\xF1o": 0
   dmgCoolDown: 0
-  vidae: 10
-  vidaeMax: 10
+  vidae: 2
+  vidaeMax: 2
   playeri: {fileID: 0}
   anim: {fileID: 0}
   "coldownDa\xF1o": 1
@@ -188,8 +188,8 @@ MonoBehaviour:
   playerDist: 0
   rango: 13
   explosionTimer: 2
-  explosionRango: 4
-  "explosionDa\xF1o": 5
+  explosionRango: 3
+  "explosionDa\xF1o": 2
   barraVidaI: {fileID: 0}
 --- !u!95 &7743142734379946557
 Animator:
