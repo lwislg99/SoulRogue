@@ -21,7 +21,7 @@ public class zonaWin : MonoBehaviour
     
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("estoyentrandoillo");
+        
         if (playerI.numeroMuertes >= 30)
         {
             Instantiate(agujero, this.transform);
