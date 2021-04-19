@@ -5,48 +5,51 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public int health;
-    public int numOfHearts;
+    
+    
+        
 
 
 
-    public Image[] hearts;
-    public Sprite fullHeart;
-    public Sprite emptyHeart;
-    public Player playerI;
 
-    void Start()
+
+        public Image[] hearts;
+        public Sprite fullHeart;
+        public Sprite emptyHeart;
+    public Player PlayerI;
+
+    private void Start()
     {
-        playerI = FindObjectOfType<Player>();
+        PlayerI = FindObjectOfType<Player>();
     }
 
     void Update()
-    {
-        if(playerI.vida < numOfHearts)
         {
-            playerI.vida = numOfHearts;
-        }
-
-        for (int i = 0; i < hearts.Length; i++)
-        {
-            if(i < playerI.vida)
+            if (PlayerI.vida > PlayerI.vidaMax)
             {
-                hearts[i].sprite = fullHeart;
-            }
-            else
-            {
-                hearts[i].sprite = emptyHeart;
+            PlayerI.vida = PlayerI.vidaMax;
             }
 
+            for (int i = 0; i < hearts.Length; i++)
+            {
+                if (i < PlayerI.vida)
+                {
+                    hearts[i].sprite = fullHeart;
+                }
+                else
+                {
+                    hearts[i].sprite = emptyHeart;
+                }
 
-            if(i < numOfHearts)
-            {
-                hearts[i].enabled = true;
-            }
-            else
-            {
-                hearts[i].enabled = false;
+
+                if (i < PlayerI.vidaMax)
+                {
+                    hearts[i].enabled = true;
+                }
+                else
+                {
+                    hearts[i].enabled = false;
+                }
             }
         }
     }
-}
