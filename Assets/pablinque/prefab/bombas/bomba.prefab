@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3088455574787040960}
   - component: {fileID: 3088455574787040961}
   - component: {fileID: 3088455574787040962}
+  - component: {fileID: 4210673530870593113}
   m_Layer: 0
   m_Name: bomba
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3088455574787040963}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.33738133, y: 0.32160437, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,7 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 042955fba1b86784cae3d4198ca89c33, type: 3}
+  m_Sprite: {fileID: 1666479139865873607, guid: 0b195f0cb8191514fb54010307ae1011,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,3 +101,22 @@ MonoBehaviour:
   explosion: {fileID: 7683852443714475703, guid: ca49130e0ecb00f48b836d2f3e78f5c0,
     type: 3}
   temporizador: 0
+--- !u!95 &4210673530870593113
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3088455574787040963}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1c8aad878de048b42bbe5015a5cba925, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
