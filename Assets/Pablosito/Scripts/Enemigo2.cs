@@ -67,7 +67,7 @@ public class Enemigo2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        this.transform.rotation = new Quaternion(0, 0, 0, 0);
         target1Dist = Vector2.Distance(target1.transform.position, transform.position);
         target2Dist = Vector2.Distance(target2.transform.position, transform.position);
         playerDist = Vector2.Distance(playeri.transform.position, transform.position);
@@ -109,6 +109,7 @@ public class Enemigo2 : MonoBehaviour
 
         if (vidae <= 0)
         {
+            playeri.numeroMuertes++;
             //Destroy(this.gameObject);
             this.gameObject.SetActive(false);
         }

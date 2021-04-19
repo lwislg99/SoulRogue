@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
 
     public string angelGame;
 
-
+    public int numeroMuertes;
 
 
     public Vector3 Movimiento;
