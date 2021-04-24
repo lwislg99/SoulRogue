@@ -5,59 +5,39 @@ using UnityEngine.UI;
 
 public class AbilityBtn : MonoBehaviour
 {
-    public string skillName;
-
-    float cooldown;
+  
     // tiempo de carga dash
-    public Image cdlmg;
+
 
     public Player playerI;
     public bool nem;
+
+    public Image imageCoolDown;
+    bool isCoolDown;
 
     private void Start()
     {
         playerI = FindObjectOfType<Player>();
     }
 
-    public void Update()
+    void Update()
     {
-        /*if (playerI.Dash == true)
+        if (Input.GetKeyDown(KeyCode.Space)&&playerI.delayDash<=0)
         {
-            if (nem == false)
+            imageCoolDown.fillAmount = 0;
+            isCoolDown = true;
+        }
+
+        if (isCoolDown==true)
+        {
+            imageCoolDown.fillAmount += 1 / playerI.delayDash * Time.deltaTime;
+
+            if (imageCoolDown.fillAmount >= 1)
             {
-                playerI.delayDash = 3;
-                nem = true;
-            }
-            cooldown += Time.deltaTime;
-            cdlmg.fillAmount = cooldown / playerI.delayDash;
 
-            if (cooldown >= playerI.delayDash)
-            {
-                playerI.Dash = false;
-                nem = false;
-
+                isCoolDown = false;
             }
 
-        }*/
+        }
     }
-
-    /*IEnumerator CoolDown()
-    {
-        cooldown = 0;
-
-        Debug.Log("entro");
-
-        cooldown += Time.deltaTime;
-            cdlmg.fillAmount = cooldown / playerI.delayDash;
-
-            if(cooldown >= playerI.delayDash)
-            {
-                empiezaAnimacion = false;
-                StopCoroutine("CoolDown");
-
-            }
-            
-            yield return null;
-        
-    }*/
 }
