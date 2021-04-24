@@ -13,23 +13,19 @@ public class Health : MonoBehaviour
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;
-    public Player playerI;
+   
 
-    void Start()
-    {
-        playerI = FindObjectOfType<Player>();
-    }
 
     void Update()
     {
-        if(playerI.vida < numOfHearts)
+        if(health > numOfHearts)
         {
-            playerI.vida = numOfHearts;
+            health = numOfHearts;
         }
 
         for (int i = 0; i < hearts.Length; i++)
         {
-            if(i < playerI.vida)
+            if(i < health)
             {
                 hearts[i].sprite = fullHeart;
             }

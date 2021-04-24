@@ -362,67 +362,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150865048}
   m_CullTransparentMesh: 0
---- !u!1 &182155316
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 182155318}
-  - component: {fileID: 182155319}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &182155318
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182155316}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 833.8146, y: 366.34232, z: -595.6049}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &182155319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182155316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21f2d3943a229f6409114656fc8d6062, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 10
-  numOfHearts: 10
-  hearts:
-  - {fileID: 641587281}
-  - {fileID: 1410306852}
-  - {fileID: 182531378}
-  - {fileID: 1912513196}
-  - {fileID: 432490977}
-  - {fileID: 2046725424}
-  - {fileID: 118021583}
-  - {fileID: 150865050}
-  - {fileID: 1959907081}
-  - {fileID: 1461346855}
-  fullHeart: {fileID: -1033307979582002943, guid: 5c535e67fc119df4e9e09d2086bc412b,
-    type: 3}
-  emptyHeart: {fileID: 3555906551563540409, guid: 5c535e67fc119df4e9e09d2086bc412b,
-    type: 3}
-  playerI: {fileID: 0}
 --- !u!1 &182531376
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,6 +519,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &389541761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 389541763}
+  - component: {fileID: 389541762}
+  m_Layer: 0
+  m_Name: player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &389541762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389541761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f2d3943a229f6409114656fc8d6062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  numOfHearts: 10
+  hearts:
+  - {fileID: 641587281}
+  - {fileID: 1410306852}
+  - {fileID: 182531378}
+  - {fileID: 1912513196}
+  - {fileID: 432490977}
+  - {fileID: 2046725424}
+  - {fileID: 118021583}
+  - {fileID: 150865050}
+  - {fileID: 1959907081}
+  - {fileID: 1461346855}
+  fullHeart: {fileID: -1033307979582002943, guid: 5c535e67fc119df4e9e09d2086bc412b,
+    type: 3}
+  emptyHeart: {fileID: 3555906551563540409, guid: 5c535e67fc119df4e9e09d2086bc412b,
+    type: 3}
+--- !u!4 &389541763
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389541761}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 333.61816, y: 138.40044, z: -0.6462746}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &426224298
 GameObject:
@@ -751,12 +750,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 596474778}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a47721d9172df9a41b76e3114f8be679, type: 3}
+  m_Script: {fileID: 11500000, guid: 8263c6c90fe99ab46b160eb71292c3e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 2
+  cooldown: 5
   imageCoolDown: {fileID: 1595716421}
-  isCoolDown: 0
 --- !u!114 &596474780
 MonoBehaviour:
   m_ObjectHideFlags: 0
