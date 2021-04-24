@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 78031666772587760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.84586, y: 0.84586, z: 0.84586}
   m_Children:
   - {fileID: 3933948662917830523}
   - {fileID: 3693369703760277015}
@@ -175,8 +175,8 @@ MonoBehaviour:
   speed: 0
   "da\xF1o": 0
   dmgCoolDown: 0
-  vidae: 10
-  vidaeMax: 10
+  vidae: 2
+  vidaeMax: 2
   playeri: {fileID: 0}
   anim: {fileID: 0}
   "coldownDa\xF1o": 1
@@ -188,7 +188,7 @@ MonoBehaviour:
   playerDist: 0
   rango: 13
   rangoDisparo: 10
-  cooldownDisparo: 1.5
+  cooldownDisparo: 2.5
   proyectilDisparo: {fileID: 167344290215979711, guid: fb0a74ee3c6c3114b8144cc95fb2cad4,
     type: 3}
   barraVidaI: {fileID: 0}
