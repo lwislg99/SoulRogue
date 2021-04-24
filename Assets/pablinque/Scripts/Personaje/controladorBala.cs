@@ -25,23 +25,20 @@ public class controladorBala : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerI.visualBala.SetActive(true);
-        PlayerI.visualBala.transform.position = this.transform.position;
+        /*PlayerI.visualBala.SetActive(true);
+        PlayerI.visualBala.transform.position = this.transform.position;*/
     }
     IEnumerator DeathDelay()
     {
         yield return new WaitForSeconds(lifeTime);
-        PlayerI.visualBala.SetActive(false);
+        //PlayerI.visualBala.SetActive(false);
         Destroy(gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("entro");
-        if (collision.CompareTag("pared"))
+        if (collision.CompareTag("pared")/*collision.CompareTag("Enemy")*/)
         {
-            
-            
-            Debug.Log(this.transform.position);
             Destroy(gameObject);
         }
         

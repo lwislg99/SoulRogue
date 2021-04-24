@@ -8,6 +8,7 @@ public class numerosmuertesenemigos : MonoBehaviour
     
     public Player PlayerI;
     public Text textoNumero;
+    //public TextMesh textMeshNumero;
     // Start is called before the first frame update
     void Start()
     {

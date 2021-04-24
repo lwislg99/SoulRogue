@@ -8,37 +8,52 @@ public class ProyectilEnemigo : MonoBehaviour
 
     public float proyectilspeed = 10;
     public float proyectilDaño = 2;
+
+    public GameObject visualDisparo;
+
+    float temporizadorVida=5;
     
     void Start()
     {
+        
         playeri = FindObjectOfType<Player>();
 
         transform.right = playeri.transform.position - transform.position;
+        visualDisparo.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (temporizadorVida>=0)
+        {
+            temporizadorVida -= Time.deltaTime;
+        }
+
         
         transform.Translate(Vector2.right * proyectilspeed * Time.deltaTime);
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
+        visualDisparo.transform.position = this.transform.position;
+        visualDisparo.transform.rotation = new Quaternion(0, 0, 0, 0);
 
-        if (collision.gameObject.tag == "Player")
+        if(temporizadorVida<=0)
         {
-            
+            Destroy(this.gameObject);
+            visualDisparo.SetActive(false);
         }
     }
+    
     void OnTriggerEnter2D(Collider2D other)
     {
-
 
         //other.gameObject.CompareTag("areaDaño")
         if (other.tag == "Player")
         {
-
             playeri.vida -= proyectilDaño;
+            Destroy(this.gameObject);
+            visualDisparo.SetActive(false);
+        }
+        if(other.tag == "pared")
+        {
             Destroy(this.gameObject);
         }
         
