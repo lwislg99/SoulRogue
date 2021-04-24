@@ -66,19 +66,19 @@ public class Items : MonoBehaviour
                 {
                     if (level == 1)
                     {
-                        player.Velocidad = player.Velocidad + 1;
+                        player.Velocidad = player.Velocidad + 0.03f;
                     }
                     else if (level == 2)
                     {
-                        player.Velocidad = player.Velocidad + 2;
+                        player.Velocidad = player.Velocidad + 0.05f;
                     }
                     else if (level == 3)
                     {
-                        player.Velocidad = player.Velocidad + 3;
+                        player.Velocidad = player.Velocidad + 0.06f;
                     }
                     else if (level == 4)
                     {
-                        player.Velocidad = player.Velocidad + 4;
+                        player.Velocidad = player.Velocidad + 0.07f;
                     }
                 }
                 if (type == 3)
