@@ -75,7 +75,11 @@ public class Enemigo2 : MonoBehaviour
         if (playerDist <=1)
         {
             explosion = true;
+            
+
+            
         }
+        
 
         if (coldownDaño >= 0)
         {
@@ -115,7 +119,30 @@ public class Enemigo2 : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        float velocityX = agent.velocity.x;
+        float velocityY = agent.velocity.y;
 
+        anim.SetFloat("MovX", velocityX);
+        anim.SetFloat("MovY", velocityY);
+
+        Vector2 Direccionplayer = playeri.transform.position - this.transform.position;
+        Direccionplayer.Normalize();
+        float posicionx = Direccionplayer.x;
+        float posiciony = Direccionplayer.y;
+        anim.SetFloat("AtackX", posicionx);
+        anim.SetFloat("AtackY", posiciony);
+
+        if (playerDist <= 1.5)
+        {
+
+          
+            anim.SetBool("NoAtack", false);
+
+
+        }
+    }
     void Wander()
     {
         if (ida == false)
