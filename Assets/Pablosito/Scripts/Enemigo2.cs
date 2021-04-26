@@ -120,13 +120,13 @@ public class Enemigo2 : MonoBehaviour
     }
 
     private void LateUpdate()
-    {
+    {//Esto es para las animaciones del movimiento
         float velocityX = agent.velocity.x;
         float velocityY = agent.velocity.y;
 
         anim.SetFloat("MovX", velocityX);
         anim.SetFloat("MovY", velocityY);
-
+        //ESto es para las animaciones de ataque,explosion
         Vector2 Direccionplayer = playeri.transform.position - this.transform.position;
         Direccionplayer.Normalize();
         float posicionx = Direccionplayer.x;
