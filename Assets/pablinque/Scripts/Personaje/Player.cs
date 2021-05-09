@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public bool balaDanoFuego = false;
     public bool Dash = false;
     public bool cambio = false;
+    public bool cambioBala = false;
 
     public string angelGame;
 
@@ -136,9 +137,14 @@ public class Player : MonoBehaviour
             Dash = false;
 
         }
+        if(cambioBala==true&& delayTiempoAtaqueUp<=0)
+        {
+            cambioBala = false;
+            prefabDisparo.transform.localScale = new Vector3(prefabDisparo.transform.localScale.x / 2, prefabDisparo.transform.localScale.y / 2, prefabDisparo.transform.localScale.z / 2);
+        }
 
 
-        if(angelGame == "ArcangelMiguel")
+        if (angelGame == "ArcangelMiguel")
         {
             ArcangelMiguel = true;
             ArcangelGabriel = false;
@@ -301,7 +307,6 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("Interaccion"))
         {
             interacionDisponible = true;
-
         }
     }
     private void OnTriggerExit(Collider other)
@@ -346,6 +351,7 @@ public class Player : MonoBehaviour
     {
         if (delayHabilidades <= 0)
         {
+            Debug.Log("miguelMandamiento1");
             delayTiempoAtaqueUp = 3;
             dañoJugadorActivado = false;
             delayHabilidades = 5;
@@ -356,6 +362,7 @@ public class Player : MonoBehaviour
     {
         if (delayHabilidades <= 0)
         {
+            Debug.Log("miguelMandamiento2");
             delayTiempoAtaqueUp = 3;
             dano = dañoMegaAunmentado;
             cambio = true;
@@ -367,6 +374,7 @@ public class Player : MonoBehaviour
     {
         if (delayHabilidades <= 0)
         {
+            Debug.Log("miguelMandamiento");
             vida += 2;
             dano = dañoAumentado;
             delayTiempoAtaqueUp = 3;
@@ -384,9 +392,11 @@ public class Player : MonoBehaviour
     {
         if (delayHabilidades <= 0)
         {
+            delayExplosion = 0.3f;
+            Debug.Log("gabrielMandamiento1");
             areaDanoExplosion.SetActive(true);
 
-            delayExplosion = 0.3f;
+            
             delayHabilidades = 5;
         }
     }
@@ -395,6 +405,7 @@ public class Player : MonoBehaviour
     {
         if (delayHabilidades <= 0)
         {
+            Debug.Log("gabrielMandamiento2");
             balaDanoFuego = true;
             cambio = true;
             delayTiempoAtaqueUp = 3;
@@ -406,9 +417,11 @@ public class Player : MonoBehaviour
     {
         if (delayHabilidades <= 0)
         {
+            Debug.Log("gabrielMandamiento");
             /*prefabDisparo.transform.localScale = new Vector3(prefabDisparo.transform.localScale.x * 2, prefabDisparo.transform.localScale.y * 2, prefabDisparo.transform.localScale.z * 2);*/
             delayTiempoAtaqueUp = 3;
             delayHabilidades = 5;
+            cambioBala = true;
         }
     }
     void bombasMandamiento1()
