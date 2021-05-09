@@ -1215,10 +1215,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 460518429215146731, guid: 8f75b2b06935d0f449cf17912a757ead,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 4.0519857
+      objectReference: {fileID: 0}
+    - target: {fileID: 460518429215146731, guid: 8f75b2b06935d0f449cf17912a757ead,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.68598366
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993815650915239757, guid: 8f75b2b06935d0f449cf17912a757ead,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -15.167221
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993815650915239757, guid: 8f75b2b06935d0f449cf17912a757ead,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 8.47673
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993815650915239757, guid: 8f75b2b06935d0f449cf17912a757ead,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 3.9326963
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993815650915239757, guid: 8f75b2b06935d0f449cf17912a757ead,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.7818794
+      objectReference: {fileID: 0}
     - target: {fileID: 4266194354696863073, guid: 8f75b2b06935d0f449cf17912a757ead,
         type: 3}
       propertyPath: m_Name
       value: Inicial 1 VF
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684817690216707404, guid: 8f75b2b06935d0f449cf17912a757ead,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 12.050131
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684817690216707404, guid: 8f75b2b06935d0f449cf17912a757ead,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 16.760754
       objectReference: {fileID: 0}
     - target: {fileID: 9136387127341300100, guid: 8f75b2b06935d0f449cf17912a757ead,
         type: 3}
