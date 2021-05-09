@@ -24038,6 +24038,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawn Point
       objectReference: {fileID: 0}
+    - target: {fileID: 251242620375972295, guid: 6828e25c34e26704db8bbcd6ee580b25,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3068341774192629890, guid: 6828e25c34e26704db8bbcd6ee580b25,
         type: 3}
       propertyPath: openingDirection
