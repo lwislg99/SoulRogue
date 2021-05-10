@@ -110,8 +110,15 @@ public class Enemigo1 : MonoBehaviour
             this.gameObject.SetActive(false);
         }
     }
-   
 
+    private void LateUpdate()
+    {
+        float velocityX = agent.velocity.x;
+        float velocityY = agent.velocity.y;
+
+        anim.SetFloat("Movx", velocityX);
+        anim.SetFloat("Movy", velocityY);
+    }
     void Wander()
     {
         if (ida == false)
@@ -137,6 +144,8 @@ public class Enemigo1 : MonoBehaviour
         //transform.position = Vector2.MoveTowards(transform.position, playeri.transform.position, speed * Time.deltaTime);
         agent.SetDestination(playeri.transform.position);
         
+
+
     }
 
     void OnTriggerStay2D(Collider2D other)
