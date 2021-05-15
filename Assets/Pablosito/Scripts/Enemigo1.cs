@@ -166,6 +166,7 @@ public class Enemigo1 : MonoBehaviour
 
         if (collision.gameObject.tag == "Player" && dmgCoolDown <= 0)
         {
+            playeri.SufrirDañoColor();
             Debug.Log("entro");
             /*anim.SetBool("atack", true);*/
             playeri.vida -= daño;

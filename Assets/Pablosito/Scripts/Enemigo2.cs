@@ -163,7 +163,7 @@ public class Enemigo2 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-
+        playeri.SufrirDañoColor();
 
         //other.gameObject.CompareTag("areaDaño")
         if (other.tag == "areaDaño" && coldownDaño <= 0)
