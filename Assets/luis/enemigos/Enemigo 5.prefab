@@ -244,6 +244,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5848289093985791302, guid: 0444568715ad2a143b792e8fff6f3c0e,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7dae4d72d6a75e145a888051f64732ab, type: 2}
+    - target: {fileID: 6260677194758100496, guid: 0444568715ad2a143b792e8fff6f3c0e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 958748164737273685, guid: 1473eaebe2d401340aa76fcffebff45d,
+        type: 3}
     - target: {fileID: 6260677194758100497, guid: 0444568715ad2a143b792e8fff6f3c0e,
         type: 3}
       propertyPath: target1
@@ -315,6 +326,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemigo 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260677194758100510, guid: 0444568715ad2a143b792e8fff6f3c0e,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.9333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260677194758100510, guid: 0444568715ad2a143b792e8fff6f3c0e,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.4666667
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6260677194758100497, guid: 0444568715ad2a143b792e8fff6f3c0e, type: 3}
