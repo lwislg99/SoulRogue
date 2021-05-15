@@ -16,7 +16,7 @@ public class Health : MonoBehaviour
         public Image[] hearts;
         public Sprite fullHeart;
         public Sprite emptyHeart;
-    public Player PlayerI;
+        public Player PlayerI;
 
     private void Start()
     {

@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Animations;
 public class Player : MonoBehaviour
 {
+    private Material matWhite;
+    private Material matDefault;
+    SpriteRenderer sr;
+
     public Rigidbody2D JugadorRB;
 
     public bool movJugadorActivado = true;
@@ -73,6 +77,11 @@ public class Player : MonoBehaviour
         JugadorRB = GetComponent<Rigidbody2D>();
         visualBala.SetActive(false);
         anim = GetComponent<Animator>();
+
+        sr = GetComponent<SpriteRenderer>();
+
+        matWhite = Resources.Load("WhiteFlash", typeof(Material)) as Material;
+        matDefault = sr.material;
     }
 
 
@@ -435,6 +444,28 @@ public class Player : MonoBehaviour
     void bombasNoMandamiento()
     {
 
+    }
+
+    public void SufrirDañoColor()
+    {
+        
+        sr.material = matWhite;
+
+        if (vida <= 0)
+        {
+            
+        }
+        else
+        {
+            Invoke("ResetMaterial", .1f);
+        }
+        
+            
+    }
+
+    void ResetMaterial()
+    {
+        sr.material = matDefault;
     }
 
 }
