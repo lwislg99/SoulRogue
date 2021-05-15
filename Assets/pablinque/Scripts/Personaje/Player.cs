@@ -68,9 +68,11 @@ public class Player : MonoBehaviour
 
     public Animator anim;
 
-
+    public float E5cooldown;
+    public float E5cooldownMax = 2;
     void Start()
     {
+        E5cooldown = E5cooldownMax;
         JugadorRB = GetComponent<Rigidbody2D>();
         visualBala.SetActive(false);
         anim = GetComponent<Animator>();
@@ -79,7 +81,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
+        E5cooldown -= Time.deltaTime;
 
         if (coldownAtaque >= 0)
         {
@@ -302,7 +304,11 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if(collision.CompareTag("Enemigo5Area")&& E5cooldown<=0)
+        {
+            vida -= 2;
+            E5cooldown = E5cooldownMax;
+        }
         //Para poder interactuar con el escenario (con esto desacticva las habilidades y activa el de interactua)
         if (collision.CompareTag("Interaccion"))
         {
