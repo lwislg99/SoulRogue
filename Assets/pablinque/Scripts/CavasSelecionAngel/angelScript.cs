@@ -22,7 +22,7 @@ public class angelScript : MonoBehaviour
     }
     public void pulsarBoton()
     {
-
+        Debug.Log("Funcina el boton");
         PlayerI = FindObjectOfType<Player>();
         PlayerI.movJugadorActivado = true;
         SelecionAngelesI = FindObjectOfType<SelecionAngeles>();
