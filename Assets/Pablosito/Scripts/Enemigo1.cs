@@ -44,6 +44,10 @@ public class Enemigo1 : MonoBehaviour
     public barraVida barraVidaI;
 
     public bool dummy = false;
+
+
+
+    public TiemblaCamara TiemblaCamaraI;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +63,7 @@ public class Enemigo1 : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         ida = false;
+        TiemblaCamaraI = FindObjectOfType<TiemblaCamara>();
     }
 
     // Update is called once per frame
@@ -196,6 +201,7 @@ public class Enemigo1 : MonoBehaviour
                 /*anim.SetBool("atack", true);*/
                 playeri.vida -= daño;
                 dmgCoolDown = 1;
+                TiemblaCamaraI.CamTiembla();
             }
         }
         

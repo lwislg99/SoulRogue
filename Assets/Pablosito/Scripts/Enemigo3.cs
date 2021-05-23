@@ -46,6 +46,12 @@ public class Enemigo3 : MonoBehaviour
 
     public GameObject proyectilDisparo;
     public barraVida barraVidaI;
+
+
+
+
+
+    public TiemblaCamara TiemblaCamaraI;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +68,7 @@ public class Enemigo3 : MonoBehaviour
         ida = false;
 
         cooldownDisparoBase = cooldownDisparo;
+        TiemblaCamaraI = FindObjectOfType<TiemblaCamara>();
     }
 
     // Update is called once per frame

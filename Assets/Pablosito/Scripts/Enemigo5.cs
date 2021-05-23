@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Enemigo5 : MonoBehaviour
 {
@@ -42,6 +43,9 @@ public class Enemigo5 : MonoBehaviour
     public float cooldownDañoSuelo;
     public float cooldownDañoBase = 1;
     public GameObject areaDaño;
+
+    public TiemblaCamara TiemblaCamaraI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +59,7 @@ public class Enemigo5 : MonoBehaviour
         agent.updateUpAxis = false;
         ida = false;
         cooldownDañoSuelo = cooldownDañoBase;
+        TiemblaCamaraI = FindObjectOfType<TiemblaCamara>();
     }
 
     // Update is called once per frame
@@ -162,6 +167,7 @@ public class Enemigo5 : MonoBehaviour
         if (collision.gameObject.tag == "Player" && dmgCoolDown <= 0)
         {
             Debug.Log("entro");
+            TiemblaCamaraI.CamTiembla();
             /*anim.SetBool("atack", true);*/
             playeri.vida -= daño;
             dmgCoolDown = 1;

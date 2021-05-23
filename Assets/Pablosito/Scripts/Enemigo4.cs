@@ -53,6 +53,11 @@ public class Enemigo4 : MonoBehaviour
     public Color verde;
     public Color rojo;
     SpriteRenderer Renderer;
+
+
+
+
+    public TiemblaCamara TiemblaCamaraI;
     // Start is called before the first frame update
     void Start()
     {
@@ -71,7 +76,7 @@ public class Enemigo4 : MonoBehaviour
 
         cooldownDisparoBase = cooldownDisparo;
         cooldownInvencibleBase = cooldownInvencible;
-
+        TiemblaCamaraI = FindObjectOfType<TiemblaCamara>();
     }
 
     // Update is called once per frame
