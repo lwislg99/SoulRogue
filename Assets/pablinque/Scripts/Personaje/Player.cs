@@ -70,6 +70,10 @@ public class Player : MonoBehaviour
 
     public float E5cooldown;
     public float E5cooldownMax = 2;
+
+
+ 
+
     void Start()
     {
         E5cooldown = E5cooldownMax;
@@ -441,7 +445,7 @@ public class Player : MonoBehaviour
         if (delayHabilidades <= 0)
         {
             Debug.Log("gabrielMandamiento");
-            /*prefabDisparo.transform.localScale = new Vector3(prefabDisparo.transform.localScale.x * 2, prefabDisparo.transform.localScale.y * 2, prefabDisparo.transform.localScale.z * 2);*/
+            prefabDisparo.transform.localScale = new Vector3(prefabDisparo.transform.localScale.x * 2, prefabDisparo.transform.localScale.y * 2, prefabDisparo.transform.localScale.z * 2);
             delayTiempoAtaqueUp = 3;
             delayHabilidades = 5;
             cambioBala = true;
