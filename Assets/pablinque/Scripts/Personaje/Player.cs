@@ -211,11 +211,9 @@ public class Player : MonoBehaviour
             float ataqueVer = Input.GetAxis("ataqueHorizontal");
 
 
-            //animacion ataque
-            anim.SetFloat("ataqueVertical", Input.GetAxis("ataqueVertical"));
-            anim.SetFloat("ataqueHorizontal", Input.GetAxis("ataqueHorizontal"));
+            
 
-            if(Input.GetAxis("ataqueVertical")!=0|| Input.GetAxis("ataqueHorizontal")!=0)
+            if((Input.GetAxis("ataqueVertical")!=0|| Input.GetAxis("ataqueHorizontal")!=0))
             {
                 anim.SetBool("noAtaque", true);
             }
@@ -292,6 +290,8 @@ public class Player : MonoBehaviour
             {
                 ataque(ataqueHor, ataqueVer);
                 coldownAtaque = 1.5f;
+
+                
             }
 
             //esto sirve para quitar el area de ataque
@@ -328,6 +328,10 @@ public class Player : MonoBehaviour
         //Diferentes tipos de ataques
         if (ArcangelMiguel == true)
         {
+            //animacion ataque
+            anim.SetFloat("ataqueVertical", Input.GetAxis("ataqueVertical"));
+            anim.SetFloat("ataqueHorizontal", Input.GetAxis("ataqueHorizontal"));
+
             areaAtaqueMiguel.transform.position = Jugador.transform.position + new Vector3(x, y, 0);
 
             areaAtaqueMiguel.SetActive(true);
@@ -335,17 +339,26 @@ public class Player : MonoBehaviour
         }
         else if (ArcangelGabriel == true)
         {
+            //animacion ataque
+            anim.SetFloat("ataqueVertical", Input.GetAxis("ataqueVertical"));
+            anim.SetFloat("ataqueHorizontal", Input.GetAxis("ataqueHorizontal"));
 
             GameObject bullet = Instantiate(prefabDisparo, transform.position, transform.rotation) as GameObject;
             bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
             bullet.GetComponent<Rigidbody2D>().velocity = new Vector3((x < 0) ? Mathf.Floor(x) * velocidadDisparo : Mathf.Ceil(x) * velocidadDisparo, (y < 0) ? Mathf.Floor(y) * velocidadDisparo : Mathf.Ceil(y) * velocidadDisparo, 0);
+            delayAtaque = 0.5f;
             //cambio = true;
         }
         else if(ArcangelBombas==true)
         {
-             GameObject bomba = Instantiate(prefabBomba, this.transform) as GameObject;
+            //animacion ataque
+            anim.SetFloat("ataqueVertical", Input.GetAxis("ataqueVertical"));
+            anim.SetFloat("ataqueHorizontal", Input.GetAxis("ataqueHorizontal"));
+
+            GameObject bomba = Instantiate(prefabBomba, this.transform) as GameObject;
             bomba.AddComponent<Rigidbody2D>().gravityScale = 0;
             bomba.GetComponent<Rigidbody2D>().velocity = new Vector3 (0 , 0 , 0);
+            delayAtaque = 0.5f;
 
         }
     }

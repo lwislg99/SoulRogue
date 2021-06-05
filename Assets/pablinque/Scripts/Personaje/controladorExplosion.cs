@@ -23,7 +23,7 @@ public class controladorExplosion : MonoBehaviour
     IEnumerator DeathDelay()
     {
         yield return new WaitForSeconds(lifeTime);
-        Debug.Log("BOOOOM");
+        
         Destroy(gameObject);
     }
 }

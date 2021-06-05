@@ -26,6 +26,12 @@ public class SelecionAngeles : MonoBehaviour
     {
         PlayerI = FindObjectOfType<Player>();
 
+        /*for (int i=0 ; i < botonesAngeles.Length ; i++)
+        {
+            botonesAngeles[i]=
+        }*/
+        /*botonesAngeles[0] = 
+        botonesAngeles[0]= */
 
     }
 
@@ -41,7 +47,7 @@ public class SelecionAngeles : MonoBehaviour
             activarSeleccion();
         }
     }
-    void activarSeleccion()
+    public void activarSeleccion()
 
     {
         PlayerI.movJugadorActivado = false;

@@ -119,7 +119,23 @@ public class Enemigo3 : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {//Esto es para las animaciones del movimiento
+        float velocityX = agent.velocity.x;
+        float velocityY = agent.velocity.y;
 
+        anim.SetFloat("Velx", velocityX);
+        anim.SetFloat("Vely", velocityY);
+        //ESto es para las animaciones de ataque,explosion
+        Vector2 Direccionplayer = playeri.transform.position - this.transform.position;
+        Direccionplayer.Normalize();
+        float posicionx = Direccionplayer.x;
+        float posiciony = Direccionplayer.y;
+        anim.SetFloat("Atackx", posicionx);
+        anim.SetFloat("Atacky", posiciony);
+
+       
+    }
     void Wander()
     {
         if (ida == false)
@@ -145,6 +161,7 @@ public class Enemigo3 : MonoBehaviour
         //transform.position = Vector2.MoveTowards(transform.position, playeri.transform.position, speed * Time.deltaTime);
         if (disparo == false)
         {
+            anim.ResetTrigger("Atack");
             agent.SetDestination(playeri.transform.position);
         }
         else
@@ -152,10 +169,10 @@ public class Enemigo3 : MonoBehaviour
             cooldownDisparo -= Time.deltaTime;
             agent.SetDestination(this.transform.position);
             if (cooldownDisparo <=0)
-            {
-                
+            {//animacion disparo
+                anim.SetTrigger("Atack");
 
-                
+
                 Instantiate(proyectilDisparo, transform.position, transform.rotation);
                 cooldownDisparo = cooldownDisparoBase;
             }
@@ -165,7 +182,7 @@ public class Enemigo3 : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         playeri.SufrirDañoColor();
 
