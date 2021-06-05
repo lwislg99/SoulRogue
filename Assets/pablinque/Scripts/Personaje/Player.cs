@@ -219,12 +219,17 @@ public class Player : MonoBehaviour
             if((Input.GetAxis("ataqueVertical")!=0|| Input.GetAxis("ataqueHorizontal")!=0))
             {
                 //anim.SetBool("noAtaque", true);
-                anim.SetTrigger("Atack");
+                if (coldownAtaque <= 0)
+                {
+                    anim.SetTrigger("Atack");
+                }
+                
             }
             else
             {
                 //anim.SetBool("noAtaque", false);
                 anim.ResetTrigger("Atack");
+                
             }
 
 
