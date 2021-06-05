@@ -214,11 +214,13 @@ public class Player : MonoBehaviour
 
             if((Input.GetAxis("ataqueVertical")!=0|| Input.GetAxis("ataqueHorizontal")!=0))
             {
-                anim.SetBool("noAtaque", true);
+                //anim.SetBool("noAtaque", true);
+                anim.SetTrigger("Atack");
             }
             else
             {
-                anim.SetBool("noAtaque", false);
+                //anim.SetBool("noAtaque", false);
+                anim.ResetTrigger("Atack");
             }
 
 
@@ -287,11 +289,13 @@ public class Player : MonoBehaviour
             //Manda la orden de ataque a la funcion
             if (coldownAtaque <= 0 && (ataqueHor != 0 || ataqueVer != 0))
             {
+
                 ataque(ataqueHor, ataqueVer);
                 coldownAtaque = 1.5f;
-
                 
+
             }
+            
 
             //esto sirve para quitar el area de ataque
             if (delayAtaque <= 0)
