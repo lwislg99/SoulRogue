@@ -74,6 +74,9 @@ public class Player : MonoBehaviour
 
     public float E5cooldown;
     public float E5cooldownMax = 2;
+    //variables particulas
+    public GmaeObject particulaDash;
+    public Transform lugarParticulaDash;
     void Start()
     {
         E5cooldown = E5cooldownMax;
@@ -199,15 +202,21 @@ public class Player : MonoBehaviour
             //Para hacer el dash
             if (Input.GetKeyDown(KeyCode.Space) && Dash == false && delayDash <= 0)
             {
+                
 
                 Dash = true;
+                lugarParticulaDash = this.transform;
                 Velocidad = velocidadDash;
                 Movimiento.x = guardarInputX * Velocidad;
                 Movimiento.y = guardarInputY * Velocidad;
 
                 dañoJugadorActivado = false;
                 tiempoDash = 0.15f;
+                
+                //Instanciar particulas
+                Instantiate(particulaDash, lugarParticulaDash.transform.position, Quaternion.identity);
 
+                
             }
 
             //Con esto se mueve el personaje
