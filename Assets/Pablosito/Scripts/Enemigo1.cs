@@ -42,6 +42,8 @@ public class Enemigo1 : MonoBehaviour
     bool ida;
     public float rango = 13;
     public barraVida barraVidaI;
+
+    public bool dummy = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -89,26 +91,38 @@ public class Enemigo1 : MonoBehaviour
         Vector2 playerDirection = (playeri.transform.position - transform.position);
         RaycastHit2D playerInfo = Physics2D.Raycast(transform.position, playerDirection, 1000f);
 
-        if (playerInfo.collider.gameObject.tag == "Player" && playerDist <= rango)
+        if(dummy ==true)
         {
-            Debug.Log("SIGUIENDO");
-            Follow();
+            if (vidae <= 0)
+            {
+                vidae = vidaeMax;
+            }
         }
-
         else
         {
-            Wander();
+            if (playerInfo.collider.gameObject.tag == "Player" && playerDist <= rango)
+            {
+                Debug.Log("SIGUIENDO");
+                Follow();
+            }
+
+            else
+            {
+                Wander();
+            }
+            RaycastHit2D wallInfo = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.right), 0.5f);
+
+
+            if (vidae <= 0)
+            {
+                playeri.numeroMuertes++;
+                //Destroy(this.gameObject);
+                this.gameObject.SetActive(false);
+            }
         }
+        
 
-        RaycastHit2D wallInfo = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.right), 0.5f);
-
-
-        if (vidae <= 0)
-        {
-            playeri.numeroMuertes++;
-            //Destroy(this.gameObject);
-            this.gameObject.SetActive(false);
-        }
+        
     }
 
     private void LateUpdate()
@@ -172,15 +186,19 @@ public class Enemigo1 : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
-        if (collision.gameObject.tag == "Player" && dmgCoolDown <= 0)
+        
+        
+        if (dummy == false)
         {
-            playeri.SufrirDañoColor();
-            Debug.Log("entro");
-            /*anim.SetBool("atack", true);*/
-            playeri.vida -= daño;
-            dmgCoolDown = 1;
+            if (collision.gameObject.tag == "Player" && dmgCoolDown <= 0)
+            {
+                Debug.Log("entro");
+                /*anim.SetBool("atack", true);*/
+                playeri.vida -= daño;
+                dmgCoolDown = 1;
+            }
         }
+        
     }
     private void OnTriggerExit2D(Collider2D collision)
     {

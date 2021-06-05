@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public bool balaDanoFuego = false;
     public bool Dash = false;
     public bool cambio = false;
+    public bool cambioBala = false;
 
     public string angelGame;
 
@@ -71,9 +72,11 @@ public class Player : MonoBehaviour
 
     public Animator anim;
 
-
+    public float E5cooldown;
+    public float E5cooldownMax = 2;
     void Start()
     {
+        E5cooldown = E5cooldownMax;
         JugadorRB = GetComponent<Rigidbody2D>();
         visualBala.SetActive(false);
         anim = GetComponent<Animator>();
@@ -87,7 +90,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
+        E5cooldown -= Time.deltaTime;
 
         if (coldownAtaque >= 0)
         {
@@ -145,9 +148,14 @@ public class Player : MonoBehaviour
             Dash = false;
 
         }
+        if(cambioBala==true&& delayTiempoAtaqueUp<=0)
+        {
+            cambioBala = false;
+            prefabDisparo.transform.localScale = new Vector3(prefabDisparo.transform.localScale.x / 2, prefabDisparo.transform.localScale.y / 2, prefabDisparo.transform.localScale.z / 2);
+        }
 
 
-        if(angelGame == "ArcangelMiguel")
+        if (angelGame == "ArcangelMiguel")
         {
             ArcangelMiguel = true;
             ArcangelGabriel = false;
@@ -215,11 +223,13 @@ public class Player : MonoBehaviour
 
             if((Input.GetAxis("ataqueVertical")!=0|| Input.GetAxis("ataqueHorizontal")!=0))
             {
-                anim.SetBool("noAtaque", true);
+                //anim.SetBool("noAtaque", true);
+                anim.SetTrigger("Atack");
             }
             else
             {
-                anim.SetBool("noAtaque", false);
+                //anim.SetBool("noAtaque", false);
+                anim.ResetTrigger("Atack");
             }
 
 
@@ -288,11 +298,13 @@ public class Player : MonoBehaviour
             //Manda la orden de ataque a la funcion
             if (coldownAtaque <= 0 && (ataqueHor != 0 || ataqueVer != 0))
             {
+
                 ataque(ataqueHor, ataqueVer);
                 coldownAtaque = 1.5f;
-
                 
+
             }
+            
 
             //esto sirve para quitar el area de ataque
             if (delayAtaque <= 0)
@@ -305,12 +317,15 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if(collision.CompareTag("Enemigo5Area")&& E5cooldown<=0)
+        {
+            vida -= 2;
+            E5cooldown = E5cooldownMax;
+        }
         //Para poder interactuar con el escenario (con esto desacticva las habilidades y activa el de interactua)
         if (collision.CompareTag("Interaccion"))
         {
             interacionDisponible = true;
-
         }
     }
     private void OnTriggerExit(Collider other)
@@ -368,6 +383,7 @@ public class Player : MonoBehaviour
     {
         if (delayHabilidades <= 0)
         {
+            Debug.Log("miguelMandamiento1");
             delayTiempoAtaqueUp = 3;
             dañoJugadorActivado = false;
             delayHabilidades = 5;
@@ -378,6 +394,7 @@ public class Player : MonoBehaviour
     {
         if (delayHabilidades <= 0)
         {
+            Debug.Log("miguelMandamiento2");
             delayTiempoAtaqueUp = 3;
             dano = dañoMegaAunmentado;
             cambio = true;
@@ -389,6 +406,7 @@ public class Player : MonoBehaviour
     {
         if (delayHabilidades <= 0)
         {
+            Debug.Log("miguelMandamiento");
             vida += 2;
             dano = dañoAumentado;
             delayTiempoAtaqueUp = 3;
@@ -406,9 +424,11 @@ public class Player : MonoBehaviour
     {
         if (delayHabilidades <= 0)
         {
+            delayExplosion = 0.3f;
+            Debug.Log("gabrielMandamiento1");
             areaDanoExplosion.SetActive(true);
 
-            delayExplosion = 0.3f;
+            
             delayHabilidades = 5;
         }
     }
@@ -417,6 +437,7 @@ public class Player : MonoBehaviour
     {
         if (delayHabilidades <= 0)
         {
+            Debug.Log("gabrielMandamiento2");
             balaDanoFuego = true;
             cambio = true;
             delayTiempoAtaqueUp = 3;
@@ -428,9 +449,11 @@ public class Player : MonoBehaviour
     {
         if (delayHabilidades <= 0)
         {
+            Debug.Log("gabrielMandamiento");
             /*prefabDisparo.transform.localScale = new Vector3(prefabDisparo.transform.localScale.x * 2, prefabDisparo.transform.localScale.y * 2, prefabDisparo.transform.localScale.z * 2);*/
             delayTiempoAtaqueUp = 3;
             delayHabilidades = 5;
+            cambioBala = true;
         }
     }
     void bombasMandamiento1()

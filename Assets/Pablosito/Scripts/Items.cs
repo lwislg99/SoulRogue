@@ -18,6 +18,7 @@ public class Items : MonoBehaviour
     
      public Player player;
 
+    public bool tienda = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,104 +42,215 @@ public class Items : MonoBehaviour
         if (collision.tag == "Player")
         {
             player = collision.gameObject.GetComponent<Player>();
-            if (Input.GetButtonDown("Habilidad") && player.interacionDisponible == true)
+            if(tienda == true)
             {
-                if (type == 1)
+                if(player.numeroMuertes >= 10)
                 {
-                    if (level == 1)
+                    if (Input.GetButtonDown("Habilidad") && player.interacionDisponible == true)
                     {
-                        player.dano = player.dano + 1;
-                    }
-                    else if (level == 2)
-                    {
-                        player.dano = player.dano + 2;
-                    }
-                    else if (level == 3)
-                    {
-                        player.dano = player.dano + 3;
-                    }
-                    else if (level == 4)
-                    {
-                        player.dano = player.dano + 4;
-                    }
-                }
-                if (type == 2)
-                {
-                    if (level == 1)
-                    {
-                        player.Velocidad = player.Velocidad + 0.03f;
-                    }
-                    else if (level == 2)
-                    {
-                        player.Velocidad = player.Velocidad + 0.05f;
-                    }
-                    else if (level == 3)
-                    {
-                        player.Velocidad = player.Velocidad + 0.06f;
-                    }
-                    else if (level == 4)
-                    {
-                        player.Velocidad = player.Velocidad + 0.07f;
-                    }
-                }
-                if (type == 3)
-                {
-                    if (level == 1)
-                    {
-                        player.vidaMax = player.vidaMax + 1;
-                    }
-                    else if (level == 2)
-                    {
-                        player.vidaMax = player.vidaMax + 2;
-                    }
-                    else if (level == 3)
-                    {
-                        player.vidaMax = player.vidaMax + 3;
-                    }
-                    else if (level == 4)
-                    {
-                        player.vidaMax = player.vidaMax + 4;
-                    }
-                }
-                if (type == 4)
-                {
-                    if (level == 1)
-                    {
-                        player.vida = player.vida + 1;
-                        if (player.vida > player.vidaMax)
+                        player.numeroMuertes -= 10;
+                        if (type == 1)
                         {
-                            player.vida = player.vidaMax;
+                            if (level == 1)
+                            {
+                                player.dano = player.dano + 1;
+                            }
+                            else if (level == 2)
+                            {
+                                player.dano = player.dano + 2;
+                            }
+                            else if (level == 3)
+                            {
+                                player.dano = player.dano + 3;
+                            }
+                            else if (level == 4)
+                            {
+                                player.dano = player.dano + 4;
+                            }
                         }
-                    }
-                    else if (level == 2)
-                    {
-                        player.vida = player.vida + 2;
-                        if (player.vida > player.vidaMax)
+                        if (type == 2)
                         {
-                            player.vida = player.vidaMax;
+                            if (level == 1)
+                            {
+                                player.Velocidad = player.Velocidad + 0.03f;
+                            }
+                            else if (level == 2)
+                            {
+                                player.Velocidad = player.Velocidad + 0.05f;
+                            }
+                            else if (level == 3)
+                            {
+                                player.Velocidad = player.Velocidad + 0.06f;
+                            }
+                            else if (level == 4)
+                            {
+                                player.Velocidad = player.Velocidad + 0.07f;
+                            }
                         }
-                    }
-                    else if (level == 3)
-                    {
-                        player.vida = player.vida + 3;
-                        if (player.vida > player.vidaMax)
+                        if (type == 3)
                         {
-                            player.vida = player.vidaMax;
+                            if (level == 1)
+                            {
+                                player.vidaMax = player.vidaMax + 1;
+                            }
+                            else if (level == 2)
+                            {
+                                player.vidaMax = player.vidaMax + 2;
+                            }
+                            else if (level == 3)
+                            {
+                                player.vidaMax = player.vidaMax + 3;
+                            }
+                            else if (level == 4)
+                            {
+                                player.vidaMax = player.vidaMax + 4;
+                            }
                         }
-                    }
-                    else if (level == 4)
-                    {
-                        player.vida = player.vida + 4;
-                        if (player.vida > player.vidaMax)
+                        if (type == 4)
                         {
-                            player.vida = player.vidaMax;
+                            if (level == 1)
+                            {
+                                player.vida = player.vida + 1;
+                                if (player.vida > player.vidaMax)
+                                {
+                                    player.vida = player.vidaMax;
+                                }
+                            }
+                            else if (level == 2)
+                            {
+                                player.vida = player.vida + 2;
+                                if (player.vida > player.vidaMax)
+                                {
+                                    player.vida = player.vidaMax;
+                                }
+                            }
+                            else if (level == 3)
+                            {
+                                player.vida = player.vida + 3;
+                                if (player.vida > player.vidaMax)
+                                {
+                                    player.vida = player.vidaMax;
+                                }
+                            }
+                            else if (level == 4)
+                            {
+                                player.vida = player.vida + 4;
+                                if (player.vida > player.vidaMax)
+                                {
+                                    player.vida = player.vidaMax;
+                                }
+                            }
                         }
-                    }
-                }
 
-                Destroy(gameObject);
-                player.interacionDisponible = false;
+                        Destroy(gameObject);
+                        player.interacionDisponible = false;
+                    }
+                }
+                
             }
+            else
+            {
+                if (Input.GetButtonDown("Habilidad") && player.interacionDisponible == true)
+                {
+                    
+                    if (type == 1)
+                    {
+                        if (level == 1)
+                        {
+                            player.dano = player.dano + 1;
+                        }
+                        else if (level == 2)
+                        {
+                            player.dano = player.dano + 2;
+                        }
+                        else if (level == 3)
+                        {
+                            player.dano = player.dano + 3;
+                        }
+                        else if (level == 4)
+                        {
+                            player.dano = player.dano + 4;
+                        }
+                    }
+                    if (type == 2)
+                    {
+                        if (level == 1)
+                        {
+                            player.Velocidad = player.Velocidad + 0.03f;
+                        }
+                        else if (level == 2)
+                        {
+                            player.Velocidad = player.Velocidad + 0.05f;
+                        }
+                        else if (level == 3)
+                        {
+                            player.Velocidad = player.Velocidad + 0.06f;
+                        }
+                        else if (level == 4)
+                        {
+                            player.Velocidad = player.Velocidad + 0.07f;
+                        }
+                    }
+                    if (type == 3)
+                    {
+                        if (level == 1)
+                        {
+                            player.vidaMax = player.vidaMax + 1;
+                        }
+                        else if (level == 2)
+                        {
+                            player.vidaMax = player.vidaMax + 2;
+                        }
+                        else if (level == 3)
+                        {
+                            player.vidaMax = player.vidaMax + 3;
+                        }
+                        else if (level == 4)
+                        {
+                            player.vidaMax = player.vidaMax + 4;
+                        }
+                    }
+                    if (type == 4)
+                    {
+                        if (level == 1)
+                        {
+                            player.vida = player.vida + 1;
+                            if (player.vida > player.vidaMax)
+                            {
+                                player.vida = player.vidaMax;
+                            }
+                        }
+                        else if (level == 2)
+                        {
+                            player.vida = player.vida + 2;
+                            if (player.vida > player.vidaMax)
+                            {
+                                player.vida = player.vidaMax;
+                            }
+                        }
+                        else if (level == 3)
+                        {
+                            player.vida = player.vida + 3;
+                            if (player.vida > player.vidaMax)
+                            {
+                                player.vida = player.vidaMax;
+                            }
+                        }
+                        else if (level == 4)
+                        {
+                            player.vida = player.vida + 4;
+                            if (player.vida > player.vidaMax)
+                            {
+                                player.vida = player.vidaMax;
+                            }
+                        }
+                    }
+
+                    Destroy(gameObject);
+                    player.interacionDisponible = false;
+                }
+            }
+            
 
 
 

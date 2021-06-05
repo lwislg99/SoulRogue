@@ -30,6 +30,7 @@ public class RoomTemplates : MonoBehaviour
     public GameObject cofre;
 
     public GameObject[] items;
+    public GameObject[] itemsTienda;
     public GameObject[] encantamientos;
 
     private RoomTemplates templates;
