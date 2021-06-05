@@ -18,7 +18,7 @@ public class Enemigo5 : MonoBehaviour
     public float dmgCoolDown;
 
     public float vidae = 10;
-
+    public float vidaeMax = 10;
 
     public Player playeri;
     public Animator anim;
