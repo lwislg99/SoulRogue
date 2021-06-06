@@ -488,15 +488,36 @@ public class Player : MonoBehaviour
     }
     void bombasMandamiento1()
     {
+        
+        delayTiempoAtaqueUp = 3;
+        dañoJugadorActivado = false;
+        delayHabilidades = 5;
+        cambio = true;
         GameObject instPart = Instantiate(mandamientoParticula1, this.transform);
+
     }
     void bombasMandamiento2()
     {
+        Debug.Log("miguelMandamiento2");
+        delayTiempoAtaqueUp = 3;
+        dano = dañoMegaAunmentado;
+        cambio = true;
         GameObject instPar = Instantiate(mandamientoParticula2, this.transform);
+
     }
     void bombasNoMandamiento()
     {
+        vida += 2;
+        dano = dañoAumentado;
+        delayTiempoAtaqueUp = 3;
+        delayHabilidades = 5;
+        cambio = true;
         GameObject instPar = Instantiate(mandamientoParticula3, this.transform);
+        if (vida > vidaMax)
+        {
+            vida = vidaMax;
+        }
+
     }
 
     public void SufrirDañoColor()
