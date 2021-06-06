@@ -2790,12 +2790,12 @@ PrefabInstance:
     - target: {fileID: 8805345253323944419, guid: 33b41d68e49b3d64d86a980693c3c996,
         type: 3}
       propertyPath: knockTime
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8805345253323944419, guid: 33b41d68e49b3d64d86a980693c3c996,
         type: 3}
       propertyPath: thrust
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33b41d68e49b3d64d86a980693c3c996, type: 3}
