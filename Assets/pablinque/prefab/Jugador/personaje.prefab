@@ -224,8 +224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3fe982da18994f4e8d4da7695e24bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 2
-  knockTime: 0.2
+  thrust: 7
+  knockTime: 0.8
 --- !u!1 &1353978087781002143
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +537,12 @@ MonoBehaviour:
   anim: {fileID: 0}
   E5cooldown: 0
   E5cooldownMax: 2
+  particulaDash: {fileID: 0}
+  lugarParticulaDash: {fileID: 0}
+  TiemblaCamaraI: {fileID: 0}
+  mandamientoParticula1: {fileID: 0}
+  mandamientoParticula2: {fileID: 0}
+  mandamientoParticula3: {fileID: 0}
 --- !u!95 &6844123855976155288
 Animator:
   serializedVersion: 3
