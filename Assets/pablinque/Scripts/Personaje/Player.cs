@@ -65,17 +65,38 @@ public class Player : MonoBehaviour
 
 
 
+    private Material matWhite;
+    private Material matDefault;
+    SpriteRenderer sr;
+
+
+
+
 
     public Animator anim;
 
     public float E5cooldown;
     public float E5cooldownMax = 2;
+
+
+    public ParticleSystem mandamientoParticula1;
+    public ParticleSystem mandamientoParticula2;
+    public ParticleSystem mandamientoParticula3;
+
+
     void Start()
     {
         E5cooldown = E5cooldownMax;
         JugadorRB = GetComponent<Rigidbody2D>();
         visualBala.SetActive(false);
         anim = GetComponent<Animator>();
+
+
+
+        sr = GetComponent<SpriteRenderer>();
+        matWhite = Resources.Load("WhiteFlash", typeof(Material)) as Material;
+        matDefault = sr.material;
+
     }
 
 
@@ -215,12 +236,17 @@ public class Player : MonoBehaviour
             if((Input.GetAxis("ataqueVertical")!=0|| Input.GetAxis("ataqueHorizontal")!=0))
             {
                 //anim.SetBool("noAtaque", true);
-                anim.SetTrigger("Atack");
+                if (coldownAtaque <= 0)
+                {
+                    anim.SetTrigger("Atack");
+                }
+                
             }
             else
             {
                 //anim.SetBool("noAtaque", false);
                 anim.ResetTrigger("Atack");
+                
             }
 
 
@@ -379,6 +405,7 @@ public class Player : MonoBehaviour
             dañoJugadorActivado = false;
             delayHabilidades = 5;
             cambio = true;
+            Instantiate(mandamientoParticula1,this.transform);
         }
     }
     void miguelMandamiento2()
@@ -389,7 +416,7 @@ public class Player : MonoBehaviour
             delayTiempoAtaqueUp = 3;
             dano = dañoMegaAunmentado;
             cambio = true;
-
+            Instantiate(mandamientoParticula2, this.transform);
 
         }
     }
@@ -403,6 +430,7 @@ public class Player : MonoBehaviour
             delayTiempoAtaqueUp = 3;
             delayHabilidades = 5;
             cambio = true;
+            Instantiate(mandamientoParticula3, this.transform);
             if (vida > vidaMax)
             {
                 vida = vidaMax;
@@ -416,10 +444,10 @@ public class Player : MonoBehaviour
         if (delayHabilidades <= 0)
         {
             delayExplosion = 0.3f;
-            Debug.Log("gabrielMandamiento1");
-            areaDanoExplosion.SetActive(true);
-
             
+            areaDanoExplosion.SetActive(true);
+            Instantiate(mandamientoParticula1, this.transform);
+
             delayHabilidades = 5;
         }
     }
@@ -428,11 +456,13 @@ public class Player : MonoBehaviour
     {
         if (delayHabilidades <= 0)
         {
-            Debug.Log("gabrielMandamiento2");
+            
             balaDanoFuego = true;
             cambio = true;
             delayTiempoAtaqueUp = 3;
             delayHabilidades = 5;
+            Instantiate(mandamientoParticula2, this.transform);
+
         }
     }
 
@@ -441,23 +471,33 @@ public class Player : MonoBehaviour
         if (delayHabilidades <= 0)
         {
             Debug.Log("gabrielMandamiento");
-            /*prefabDisparo.transform.localScale = new Vector3(prefabDisparo.transform.localScale.x * 2, prefabDisparo.transform.localScale.y * 2, prefabDisparo.transform.localScale.z * 2);*/
+            prefabDisparo.transform.localScale = new Vector3(prefabDisparo.transform.localScale.x * 2, prefabDisparo.transform.localScale.y * 2, prefabDisparo.transform.localScale.z * 2);
             delayTiempoAtaqueUp = 3;
             delayHabilidades = 5;
             cambioBala = true;
+            Instantiate(mandamientoParticula3, this.transform);
         }
     }
     void bombasMandamiento1()
     {
-
+        Instantiate(mandamientoParticula1, this.transform);
     }
     void bombasMandamiento2()
     {
-
+        Instantiate(mandamientoParticula2, this.transform);
     }
     void bombasNoMandamiento()
     {
-
+        Instantiate(mandamientoParticula3, this.transform);
+    }
+    public void cambiarColorJugador()
+    {
+        sr.material = matWhite;
+        Invoke("ResetMaterial", 0.1f);
+    }
+    void ResetMaterial()
+    {
+        sr.material = matDefault;
     }
 
 }

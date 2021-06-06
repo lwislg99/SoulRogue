@@ -12,7 +12,8 @@ public class ProyectilEnemigo : MonoBehaviour
     public GameObject visualDisparo;
 
     float temporizadorVida=5;
-    
+    public TiemblaCamara TiemblaCamaraI;
+
     void Start()
     {
         
@@ -20,6 +21,7 @@ public class ProyectilEnemigo : MonoBehaviour
 
         transform.right = playeri.transform.position - transform.position;
         visualDisparo.SetActive(true);
+        TiemblaCamaraI = FindObjectOfType<TiemblaCamara>();
     }
 
     // Update is called once per frame
@@ -48,6 +50,7 @@ public class ProyectilEnemigo : MonoBehaviour
         //other.gameObject.CompareTag("areaDaño")
         if (other.tag == "Player")
         {
+            TiemblaCamaraI.CamTiembla();
             playeri.vida -= proyectilDaño;
             Destroy(this.gameObject);
             visualDisparo.SetActive(false);
