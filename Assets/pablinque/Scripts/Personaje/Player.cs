@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
     public float E5cooldown;
     public float E5cooldownMax = 2;
     //variables particulas
-    public GmaeObject particulaDash;
+    public GameObject particulaDash;
     public Transform lugarParticulaDash;
     void Start()
     {
