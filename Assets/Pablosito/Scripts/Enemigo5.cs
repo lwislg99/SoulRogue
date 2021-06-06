@@ -9,6 +9,7 @@ public class Enemigo5 : MonoBehaviour
 
     public EnemyState currState = EnemyState.Wander;
 
+
     public float range;
     public float speed;
 
@@ -17,6 +18,7 @@ public class Enemigo5 : MonoBehaviour
     public float dmgCoolDown;
 
     public float vidae = 10;
+    public float vidaeMax = 10;
 
 
     public Player playeri;
@@ -59,6 +61,7 @@ public class Enemigo5 : MonoBehaviour
         agent.updateUpAxis = false;
         ida = false;
         cooldownDañoSuelo = cooldownDañoBase;
+        vidae = vidaeMax;
     }
 
     // Update is called once per frame
