@@ -360,7 +360,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &854810377 stripped
 MonoBehaviour:
@@ -908,6 +908,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3088455574787040963, guid: 1ce2aaf02fa4c364f8a869230faaaf2b,
         type: 3}
+    - target: {fileID: 8805345253323944419, guid: 33b41d68e49b3d64d86a980693c3c996,
+        type: 3}
+      propertyPath: thrust
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805345253323944419, guid: 33b41d68e49b3d64d86a980693c3c996,
+        type: 3}
+      propertyPath: knockTime
+      value: 0.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33b41d68e49b3d64d86a980693c3c996, type: 3}
 --- !u!1001 &2455317976873643464
@@ -925,12 +935,12 @@ PrefabInstance:
     - target: {fileID: 2455317975797853871, guid: c735da2f683532a478291ec90e842798,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.48
+      value: -1.717
       objectReference: {fileID: 0}
     - target: {fileID: 2455317975797853871, guid: c735da2f683532a478291ec90e842798,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.99
+      value: -0.919
       objectReference: {fileID: 0}
     - target: {fileID: 2455317975797853871, guid: c735da2f683532a478291ec90e842798,
         type: 3}
@@ -994,12 +1004,12 @@ PrefabInstance:
     - target: {fileID: 2540692701811605173, guid: b6c50278c17db9a478d8025f8205fb5f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.3
+      value: -4.068
       objectReference: {fileID: 0}
     - target: {fileID: 2540692701811605173, guid: b6c50278c17db9a478d8025f8205fb5f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.05
+      value: -1.019
       objectReference: {fileID: 0}
     - target: {fileID: 2540692701811605173, guid: b6c50278c17db9a478d8025f8205fb5f,
         type: 3}
