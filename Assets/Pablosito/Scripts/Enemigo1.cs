@@ -202,6 +202,8 @@ public class Enemigo1 : MonoBehaviour
                 playeri.vida -= daño;
                 dmgCoolDown = 1;
                 TiemblaCamaraI.CamTiembla();
+
+                playeri.cambiarColorJugador();
             }
         }
         

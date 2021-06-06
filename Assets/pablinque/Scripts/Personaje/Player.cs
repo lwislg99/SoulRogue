@@ -65,6 +65,13 @@ public class Player : MonoBehaviour
 
 
 
+    private Material matWhite;
+    private Material matDefault;
+    SpriteRenderer sr;
+
+
+
+
 
     public Animator anim;
 
@@ -76,6 +83,13 @@ public class Player : MonoBehaviour
         JugadorRB = GetComponent<Rigidbody2D>();
         visualBala.SetActive(false);
         anim = GetComponent<Animator>();
+
+
+
+        sr = GetComponent<SpriteRenderer>();
+        matWhite = Resources.Load("WhiteFlash", typeof(Material)) as Material;
+        matDefault = sr.material;
+
     }
 
 
@@ -458,6 +472,15 @@ public class Player : MonoBehaviour
     void bombasNoMandamiento()
     {
 
+    }
+    public void cambiarColorJugador()
+    {
+        sr.material = matWhite;
+        Invoke("ResetMaterial", 0.1f);
+    }
+    void ResetMaterial()
+    {
+        sr.material = matDefault;
     }
 
 }
