@@ -292,6 +292,11 @@ PrefabInstance:
       propertyPath: Alert
       value: 
       objectReference: {fileID: 2116384166308544889}
+    - target: {fileID: 8455471354094059936, guid: d9e03c3c459aa6e42a8e4fcd6a00a552,
+        type: 3}
+      propertyPath: rango
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9e03c3c459aa6e42a8e4fcd6a00a552, type: 3}
 --- !u!4 &4072554839843502927 stripped
