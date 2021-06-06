@@ -42,6 +42,10 @@ public class Enemigo5 : MonoBehaviour
     public float cooldownDañoSuelo;
     public float cooldownDañoBase = 1;
     public GameObject areaDaño;
+
+    public GameObject Alert;
+    bool Exclamacion;
+    float alertTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -110,6 +114,10 @@ public class Enemigo5 : MonoBehaviour
 
     void Wander()
     {
+
+        Alert.gameObject.SetActive(false);
+        Exclamacion = true;
+        alertTime = 1.5f;
         if (ida == false)
         {
             agent.SetDestination(target1.position);
@@ -130,6 +138,21 @@ public class Enemigo5 : MonoBehaviour
 
     void Follow()
     {
+
+        alertTime -= Time.deltaTime;
+        if (Exclamacion == true)
+        {
+            Debug.Log("sdadsg");
+            Alert.gameObject.SetActive(true);
+            if (alertTime <= 0)
+            {
+                Exclamacion = false;
+            }
+        }
+        else
+        {
+            Alert.gameObject.SetActive(false);
+        }
         //transform.position = Vector2.MoveTowards(transform.position, playeri.transform.position, speed * Time.deltaTime);
         agent.SetDestination(playeri.transform.position);
 
