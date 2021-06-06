@@ -23,7 +23,7 @@ public class impactacionScript : MonoBehaviour
             }
         }
     }
-    private IEnumerator KnockCo(Rigidbody2D enemy)
+    private IEnumerator  KnockCo(Rigidbody2D enemy)
     {
         if(enemy ==null)
         {

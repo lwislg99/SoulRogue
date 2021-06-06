@@ -51,6 +51,11 @@ public class Enemigo2 : MonoBehaviour
     public GameObject Alert;
     bool Exclamacion;
     float alertTime;
+
+
+
+    public TiemblaCamara tiemblaCamaraI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +72,9 @@ public class Enemigo2 : MonoBehaviour
         ida = false;
 
         explosionTimer = 1;
+
+        tiemblaCamaraI = FindObjectOfType<TiemblaCamara>();
+
     }
 
     // Update is called once per frame
@@ -202,6 +210,8 @@ public class Enemigo2 : MonoBehaviour
                 if(playerDist<= explosionRango)
                 {
                     playeri.vida -= explosionDaño;
+                    //nfkdfnknkd
+                    tiemblaCamaraI.CamTiembla();
 
                 }
 

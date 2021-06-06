@@ -77,6 +77,21 @@ public class Player : MonoBehaviour
     //variables particulas
     public GameObject particulaDash;
     public Transform lugarParticulaDash;
+
+
+
+    public TiemblaCamara TiemblaCamaraI;
+
+
+    /*public ParticleSystem mandamientoParticula1;
+    public ParticleSystem mandamientoParticula2;
+    public ParticleSystem mandamientoParticula3;*/
+    public GameObject mandamientoParticula1;
+    public GameObject mandamientoParticula2;
+    public GameObject mandamientoParticula3;
+
+
+
     void Start()
     {
         E5cooldown = E5cooldownMax;
@@ -88,6 +103,7 @@ public class Player : MonoBehaviour
 
         matWhite = Resources.Load("WhiteFlash", typeof(Material)) as Material;
         matDefault = sr.material;
+        TiemblaCamaraI = FindObjectOfType<TiemblaCamara>();
     }
 
 
@@ -328,7 +344,8 @@ public class Player : MonoBehaviour
     {
         if(collision.CompareTag("Enemigo5Area")&& E5cooldown<=0)
         {
-            vida -= 2;
+            vida -= 1;
+            TiemblaCamaraI.CamTiembla();
             E5cooldown = E5cooldownMax;
         }
         //Para poder interactuar con el escenario (con esto desacticva las habilidades y activa el de interactua)
@@ -397,6 +414,7 @@ public class Player : MonoBehaviour
             dañoJugadorActivado = false;
             delayHabilidades = 5;
             cambio = true;
+            GameObject instPart = Instantiate(mandamientoParticula1, this.transform);
         }
     }
     void miguelMandamiento2()
@@ -407,7 +425,7 @@ public class Player : MonoBehaviour
             delayTiempoAtaqueUp = 3;
             dano = dañoMegaAunmentado;
             cambio = true;
-
+            GameObject instPart = Instantiate(mandamientoParticula2, this.transform);
 
         }
     }
@@ -421,6 +439,7 @@ public class Player : MonoBehaviour
             delayTiempoAtaqueUp = 3;
             delayHabilidades = 5;
             cambio = true;
+            GameObject instPart = Instantiate(mandamientoParticula3, this.transform);
             if (vida > vidaMax)
             {
                 vida = vidaMax;
@@ -436,8 +455,8 @@ public class Player : MonoBehaviour
             delayExplosion = 0.3f;
             Debug.Log("gabrielMandamiento1");
             areaDanoExplosion.SetActive(true);
+            GameObject instPart = Instantiate(mandamientoParticula1, this.transform);
 
-            
             delayHabilidades = 5;
         }
     }
@@ -451,6 +470,7 @@ public class Player : MonoBehaviour
             cambio = true;
             delayTiempoAtaqueUp = 3;
             delayHabilidades = 5;
+            GameObject instPart = Instantiate(mandamientoParticula2, this.transform);
         }
     }
 
@@ -459,23 +479,24 @@ public class Player : MonoBehaviour
         if (delayHabilidades <= 0)
         {
             Debug.Log("gabrielMandamiento");
-            /*prefabDisparo.transform.localScale = new Vector3(prefabDisparo.transform.localScale.x * 2, prefabDisparo.transform.localScale.y * 2, prefabDisparo.transform.localScale.z * 2);*/
+            prefabDisparo.transform.localScale = new Vector3(prefabDisparo.transform.localScale.x * 2, prefabDisparo.transform.localScale.y * 2, prefabDisparo.transform.localScale.z * 2);
             delayTiempoAtaqueUp = 3;
             delayHabilidades = 5;
             cambioBala = true;
+            GameObject instPart = Instantiate(mandamientoParticula3, this.transform);
         }
     }
     void bombasMandamiento1()
     {
-
+        GameObject instPart = Instantiate(mandamientoParticula1, this.transform);
     }
     void bombasMandamiento2()
     {
-
+        GameObject instPar = Instantiate(mandamientoParticula2, this.transform);
     }
     void bombasNoMandamiento()
     {
-
+        GameObject instPar = Instantiate(mandamientoParticula3, this.transform);
     }
 
     public void SufrirDañoColor()

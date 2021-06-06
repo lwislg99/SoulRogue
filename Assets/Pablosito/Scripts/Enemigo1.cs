@@ -65,6 +65,9 @@ public class Enemigo1 : MonoBehaviour
 
     Vector3 atackTarget;
     public float cooldownAtaque;
+
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -89,6 +92,8 @@ public class Enemigo1 : MonoBehaviour
 
         cooldownAtaque = 0;
 
+
+        
     }
 
     // Update is called once per frame
